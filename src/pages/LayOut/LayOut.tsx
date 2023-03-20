@@ -1,21 +1,17 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
 import styles from './LayOut.module.scss';
-import { globalState, increment, decrement } from 'Src/app/globalReducer';
-import { useSelector, useDispatch } from 'react-redux';
+import Button from '../../components/Button';
 
 const LayOut = () => {
-    const { count } = useSelector(globalState);
-    const dispatch = useDispatch();
 
     return (
         <div className={styles.layoutBox}>
-            <div className="header">
-                这是一个脚手架
-            </div>
-            <div className="rightBox">
-                <Outlet />
-            </div>
+            <Button buttonType="primary">111</Button>
+            <Button buttonType="danger">111</Button>
+            <Button buttonType="default">111</Button>
+            <Button disabled>111</Button>
+            <Button size="lg">111</Button>
+            <Button size="sm">111</Button>
         </div>
     );
 };
