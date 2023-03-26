@@ -1,47 +1,62 @@
 import React from 'react';
 import styles from './Button.module.scss';
 import cx from 'classnames';
-
-// export enum ButtonSize {
-//     Large = 'lg',
-//     Small = 'sm'
-// }
+import omit from 'rc-util/lib/omit';
 
 type ButtonSize = 'lg' | 'sm';
 
-// export enum ButtonType {
-//     Primary = 'primary',
-//     Default = 'default',
-//     Danger = 'danger',
-// }
-
-type ButtonType = 'primary' | 'default' | 'danger';
-
-interface IBaseButtonProps {
-    className?: string;
+type ButtonType = 'primary' | 'default' | 'danger' | 'link';
+interface BaseButtonProps {
+    classnames?: string;
     disabled?: boolean;
     size?: ButtonSize;
     buttonType?: ButtonType;
     children: React.ReactNode;
-    href?: string;
 }
 
-type NativeButtonProps = IBaseButtonProps & React.ButtonHTMLAttributes<HTMLLIElement>;
-type AnchorButtonProps = IBaseButtonProps & React.AnchorHTMLAttributes<HTMLLIElement>;
-type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
+export type NativeButtonProps = {
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+} & BaseButtonProps &
+    Omit<React.AnchorHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, 'type' | 'onClick'>;
+
+export type AnchorButtonProps = {
+    href: string;
+    target?: string;
+    onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+} & BaseButtonProps &
+    Omit<React.AnchorHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, 'type' | 'onClick'>;
+
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 
 const Button: React.FC<ButtonProps> = (props) => {
-    const { className, disabled = false, size, buttonType = 'primary', children, ...restProps } = props;
+    const {
+        classnames,
+        disabled = false,
+        size,
+        buttonType = 'primary',
+        children,
+        ...rest
+    } = props;
 
+    const linkButtonRestProps = omit(rest as AnchorButtonProps & { navigate: any; }, ['navigate']);
+
+    if (buttonType === 'link') {
+        return (
+            <a className={classnames} {...linkButtonRestProps}>
+                {children}
+            </a>
+        );
+    }
     return (
         <button
             className={cx([
                 styles.btn,
-                className && styles[className],
+                classnames && styles[classnames],
                 buttonType && styles[`btn-${buttonType}`],
                 size && styles[`btn-${size}`],
                 disabled && styles.disabled
             ])}
+            {...(rest as NativeButtonProps)}
             disabled={disabled}
         >
             {children}

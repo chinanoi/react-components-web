@@ -18,8 +18,25 @@ styles.scss(组件单独的样式)
 
 ### Button 组件
 
-button 就是按钮，加上 link 功能是否合理？
-
 使用 sass，mixin 函数，减少重复代码
 使用 React.ButtonHTMLAttributes，可以继承原生 button 标签中所有属性
 使用 typescript，Partial，将所有属性变为可选
+Omit 是 TypeScript3.5 新增的一个辅助类型，它的作用主要是：以一个类型为基础支持剔除某些属性，然后返回一个新类型。
+
+## 单元测试
+
+-   UI
+
+-   Service
+
+-   Unit
+
+### Jest
+
+断言库：jest
+特点：0 配置
+
+安装：@testing-library/react 库
+安装 @types/jest
+安装 @testing-library/jest-dom
+新建 setupFiles.ts 文件
