@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Button.module.scss';
+import './Button.scss';
 import cx from 'classnames';
 import omit from 'rc-util/lib/omit';
 
@@ -50,11 +50,11 @@ const Button: React.FC<ButtonProps> = (props) => {
     return (
         <button
             className={cx([
-                styles.btn,
-                classnames && styles[classnames],
-                buttonType && styles[`btn-${buttonType}`],
-                size && styles[`btn-${size}`],
-                disabled && styles.disabled
+                "btn",
+                classnames && [classnames],
+                buttonType && [`btn-${buttonType}`],
+                size && [`btn-${size}`],
+                disabled && disabled
             ])}
             {...(rest as NativeButtonProps)}
             disabled={disabled}
