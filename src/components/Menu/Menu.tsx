@@ -1,5 +1,4 @@
 import React, { createContext, useState, ReactNode } from 'react';
-import './Menu.scss';
 import classNames from 'classnames';
 import { IMenuItemProps } from './MenuItem';
 

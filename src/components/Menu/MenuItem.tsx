@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import React, { ReactNode, FC, useContext } from 'react';
 import { MenuContext } from './Menu';
-import './Menu.scss';
 
 export interface IMenuItemProps {
     index?: string;

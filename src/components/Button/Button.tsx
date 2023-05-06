@@ -1,5 +1,4 @@
 import React from 'react';
-import './Button.scss';
 import cx from 'classnames';
 import omit from 'rc-util/lib/omit';
 

@@ -2,7 +2,6 @@ import React, { FC, ReactNode, useContext, useState, FunctionComponentElement } 
 import classNames from 'classnames';
 import { MenuContext } from './Menu';
 import { IMenuItemProps } from './MenuItem';
-import './Menu.scss';
 import Transition from '../Transition/Transition';
 
 export interface SubMenuProps {

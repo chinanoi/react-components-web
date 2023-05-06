@@ -57,3 +57,11 @@ Omit 是 TypeScript3.5 新增的一个辅助类型，它的作用主要是：以
 6. 最后，使用 `git push --force` 命令将修改推送到远程仓库。
 
 注意：使用 `git rebase` 命令会改变 commit 的哈希值，因此在合并 commit 之后，需要使用 `git push --force` 命令来强制推送修改到远程仓库。同时，如果其他人在此期间也对同一个分支进行了修改，可能会导致冲突，需要解决冲突后再进行推送。
+
+## 图标解决方案 
+
+react-fontawesome - 较通用的图标库(ant-design使用的就是这个)
+- npm i --save @fortawesome/fontawesome-svg-core | 核心库-svg的实现
+- npm i --save @fortawesome/free-solid-svg-icons | svg图标库 - 免费版里面的solid部分
+- npm i --save @fortawesome/react-fontawesome | 用来显示svg的组件
+
