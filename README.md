@@ -65,3 +65,8 @@ react-fontawesome - 较通用的图标库(ant-design使用的就是这个)
 - npm i --save @fortawesome/free-solid-svg-icons | svg图标库 - 免费版里面的solid部分
 - npm i --save @fortawesome/react-fontawesome | 用来显示svg的组件
 
+## storybook
+
+- 安装时会收到一个消息询问是否要在项目上运行 'eslintPlugin' 迁移，如果选择是，会出现与当前配置的eslint的冲突问题，目前暂时选择no(否)，后续看下eslint这块的内容
+
+- 导入样式需要安装对应库，具体见：https://github.com/storybookjs/addon-styling/blob/main/docs/api.md#optionssass
