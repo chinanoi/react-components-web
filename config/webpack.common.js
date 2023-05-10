@@ -72,6 +72,9 @@ module.exports = {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: isDev,
+                            sassOptions: {
+                                includePaths: ['./src/styles']
+                            }
                         },
                     },
                 ],

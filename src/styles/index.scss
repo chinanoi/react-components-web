@@ -3,9 +3,17 @@
 @import 'normalize';
 //mixin
 @import "mixin";
+// animation
+@import "animation";
 // button
 @import "../components/Button/style";
 // menu
 @import "../components/Menu/style";
 // icon
 @import "../components/Icon/style";
+// Input
+@import "../components/Input/style";
+// autoComplate
+@import "../components/AutoComplate/style";
+// Alert
+@import "../components/Alert/style";
