@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
 import cx from 'classnames';
 import omit from 'rc-util/lib/omit';
 
@@ -11,19 +11,12 @@ interface BaseButtonProps {
     size?: ButtonSize;
     buttonType?: ButtonType;
     children: React.ReactNode;
+    href?: string;
 }
 
-export type NativeButtonProps = {
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
-} & BaseButtonProps &
-    Omit<React.AnchorHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, 'type' | 'onClick'>;
+export type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
 
-export type AnchorButtonProps = {
-    href: string;
-    target?: string;
-    onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-} & BaseButtonProps &
-    Omit<React.AnchorHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, 'type' | 'onClick'>;
+export type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
 
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 

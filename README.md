@@ -72,4 +72,23 @@ react-fontawesome - 较通用的图标库(ant-design使用的就是这个)
 - 导入样式需要安装对应库，具体见：https://github.com/storybookjs/addon-styling/blob/main/docs/api.md#optionssass
 
 ## sass
-在webpack配置文件中的sass-loader的options中添加： includePaths: ['./src/styles'] - 为了能正确解析@import
+- 在webpack配置文件中的sass-loader的options中添加： includePaths: ['./src/styles'] - 为了能正确解析@import
+- 在 Sass 中，使用 @import 导入 SCSS 文件时，如果文件名以 _ 开头，则会被视为一个“局部模块”，不会作为编译后的 CSS 文件的独立模块输出。
+
+## 打包
+tsconfig.build.json：
+- target：配置编译目标版本
+- module：模块系统
+- outDir：编译后 JavaScript 文件的输出目录
+- declaration：编译后的 JavaScript 代码是否自动生成对应的类型声明文件
+- include：该选项的值是一个字符串数组，每个元素表示一个包含 TypeScript 文件的目录或者文件的通配符模式。编译器会根据这些模式匹配项目中的 TypeScript 文件，并将其编译为 JavaScript 文件。
+- exclude：TypeScript 编译器选项中的一个配置项，用来排除不需要被编译的文件或目录
+- moduleResolution：指定模块解析方式，即 TypeScript 编译器在处理模块导入时所采用的算法。
+    1. "node"：表示采用 Node.js 的模块解析方式，即先按文件名查找模块，如果未找到，则按目录查找 index.ts、index.d.ts 或 index.js 文件，并且支持 node_modules 目录的层级查找。
+    2. "classic"：表示采用经典的相对路径/绝对路径模块解析方式，即先尝试将导入语句视为相对路径或绝对路径，如果失败，则尝试查找全局模块。
+
+## 打包样式
+非按需加载，打包出总的样式文件
+
+
+

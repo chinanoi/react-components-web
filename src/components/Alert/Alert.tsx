@@ -26,7 +26,7 @@ interface CloseIconProps {
 const CloseIcon: React.FC<CloseIconProps> = (props) => {
     const { isClosable, closeIcon, handleClose } = props;
     return isClosable ? (
-        <button type="button" onClick={handleClose} className={'lion-alert-close-icon'} tabIndex={0}>
+        <button type="button" onClick={handleClose} className={'baiyi-alert-close-icon'} tabIndex={0}>
             {closeIcon}
         </button>
     ) : null;
@@ -47,7 +47,7 @@ const Alert = (props: IAlertProps) => {
         style
     } = props;
 
-    const prefixCls = 'lion-alert';
+    const prefixCls = 'baiyi-alert';
 
     const alertCls = classNames(
         prefixCls,
@@ -70,7 +70,7 @@ const Alert = (props: IAlertProps) => {
                 style={style}
                 role="alert"
             >
-                <div className="lion-alert-content">{message}</div>
+                <div className="baiyi-alert-content">{message}</div>
                 <CloseIcon
                     isClosable={!!closable}
                     handleClose={handleClose}

@@ -1,6 +1,7 @@
 import React, { createContext, useState, ReactNode } from 'react';
 import classNames from 'classnames';
 import { IMenuItemProps } from './MenuItem';
+import { useEffect } from 'react';
 
 
 type MenuMode = 'horizontal' | 'vertical';
