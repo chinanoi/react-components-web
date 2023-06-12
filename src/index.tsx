@@ -12,7 +12,17 @@ if (module && module.hot) {
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <Upload action="http://localhost:8000/uploadSingle">
-            <Button size="lg" buttonType="primary"><Icon icon="upload" /> 点击上传 </Button>
+            <Button size="lg" buttonType="primary"><Icon icon="upload" /> 上传单个 </Button>
         </Upload>
+        <Upload action="http://localhost:8000/uploadSingle" multiple>
+            <Button size="lg" buttonType="primary"><Icon icon="upload" /> 上传多个 </Button>
+        </Upload>
+        <Upload action="http://localhost:8000/uploadSingle" multiple drag>
+            拖拽到这里上传
+        </Upload>
+        <Upload action="http://localhost:8000/uploadSingle" multiple bigFile>
+            <Button size="lg" buttonType="primary"><Icon icon="upload" /> 大文件上传 </Button>
+        </Upload>
+
     </React.StrictMode>
 );
